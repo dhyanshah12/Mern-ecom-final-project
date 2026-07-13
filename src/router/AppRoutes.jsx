@@ -5,6 +5,8 @@ import { UserNavbar } from "../components/user/UserNavbar";
 import { UserOrder } from "../components/user/UserOrder";
 import { AdminSideBar } from "../components/admin/AdminSideBar";
 import { UserList } from "../components/admin/UserList";
+import { ProtectedRoutes } from "../components/comman/ProtectedRoutes";
+import { Cart } from "../components/user/Cart";
 
 
 
@@ -23,7 +25,14 @@ const router = createBrowserRouter([
         children:[
             {
                 path:"orders",
-                element:<UserOrder/>
+                element:
+                <ProtectedRoutes>
+                    <UserOrder/>
+                </ProtectedRoutes>
+            },
+            {
+                path:"cart",
+                element:<Cart/>
             }
         ]
     },
